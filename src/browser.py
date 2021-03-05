@@ -12,8 +12,23 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.browser)
         self.showMaximized()
 
+        navbar = QToolBar()
+        self.addToolBar(navbar)
+        
+        back_btn = QAction('Back',self)
+        back_btn.triggered.connect(self.browser.back)
+        navbar.addAction(back_btn)
+        
+        forward_btn = QAction('Forward',self)
+        forward_btn.triggered.connect(self.browser.forward)
+        navbar.addAction(forward_btn)
+
+        reload_btn = QAction
 
 App = QApplication(sys.argv)
 QApplication.setApplicationName("TOR Borwser")
 window = MainWindow()
 App.exec_()
+
+
+
