@@ -14,20 +14,20 @@ class MainWindow(QMainWindow):
 
         navbar = QToolBar()
         self.addToolBar(navbar)
-        
-        back_btn = QAction('Back',self)
+
+        back_btn = QAction('Back', self)
         back_btn.triggered.connect(self.browser.back)
         navbar.addAction(back_btn)
-        
-        forward_btn = QAction('Forward',self)
+
+        forward_btn = QAction('Forward', self)
         forward_btn.triggered.connect(self.browser.forward)
         navbar.addAction(forward_btn)
 
-        reload_btn = QAction("Reload",self)
+        reload_btn = QAction("Reload", self)
         reload_btn.triggered.connect(self.browser.reload)
         navbar.addAction(reload_btn)
 
-        home_btn = QAction('Home',self)
+        home_btn = QAction('Home', self)
         home_btn.triggered.connect(self.navigate_home)
         navbar.addAction(home_btn)
 
@@ -41,17 +41,14 @@ class MainWindow(QMainWindow):
         url = self.url_bar.text()
         self.browser.setUrl(QUrl(url))
 
-    def url_update(self,g):
+    def url_update(self, g):
         self.url_bar.setText(g.toString())
 
     def navigate_home(self):
-        self.browser.setUrl(QUrl("https://google.com"))  
+        self.browser.setUrl(QUrl("https://google.com"))
 
 
 App = QApplication(sys.argv)
 QApplication.setApplicationName("TOR Borwser")
 window = MainWindow()
 App.exec_()
-
-
-
